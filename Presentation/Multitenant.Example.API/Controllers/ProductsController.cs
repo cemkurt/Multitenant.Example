@@ -15,6 +15,12 @@ namespace Multitenant.Example.API.Controllers
             _productService = productService;
         }
 
+
+        [HttpGet,Route("datas")]
+        public async Task<IActionResult> XGetAllAsync()
+            => Ok(await _productService.XGetAllAsync());
+
+
         [HttpGet]
         public async Task<IActionResult> GetAsync()
             => Ok(await _productService.GetAllAsnyc());

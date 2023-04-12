@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Multitenant.Example.Persistence
 {
-    public class ProductService : IProductService
+    public class ProductService :     Repository<Product>, IProductService
     {
         readonly ApplicationDbContext _context;
 
-        public ProductService(ApplicationDbContext context)
+        public ProductService(ApplicationDbContext context) :base(context)
         {
             _context = context;
         }
