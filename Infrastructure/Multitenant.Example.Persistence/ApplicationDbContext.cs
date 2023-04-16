@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Multitenant.Example.Application.Abstractions;
 using Multitenant.Example.Domain.Contracts;
 using Multitenant.Example.Domain.Entities;
@@ -10,11 +12,11 @@ using System.Threading.Tasks;
 
 namespace Multitenant.Example.Persistence
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<IdentityUser, IdentityRole, string>
     {
         readonly ITenantService _tenantService;
         string tenantId;
-        public ApplicationDbContext(DbContextOptions options, ITenantService tenantService) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, ITenantService tenantService) : base(options)
         {
             _tenantService = tenantService;
             tenantId = _tenantService.GetTenant()?.TenantId;
@@ -23,6 +25,8 @@ namespace Multitenant.Example.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Product>().HasQueryFilter(p => p.TenantId == tenantId);
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

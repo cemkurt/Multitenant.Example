@@ -9,15 +9,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{2E0B05A2-8EC5-438A-A850-75A7B8D1C15E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multitenant.Example.Domain", "Core\Multitenant.Example.Domain\Multitenant.Example.Domain.csproj", "{3B24E051-BC63-47F8-B8EA-5F46D5BC3E29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multitenant.Example.Domain", "Core\Multitenant.Example.Domain\Multitenant.Example.Domain.csproj", "{3B24E051-BC63-47F8-B8EA-5F46D5BC3E29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multitenant.Example.Application", "Core\Multitenant.Example.Application\Multitenant.Example.Application.csproj", "{299C6D51-2EC7-4300-B15B-BCB1A84AB898}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multitenant.Example.Application", "Core\Multitenant.Example.Application\Multitenant.Example.Application.csproj", "{299C6D51-2EC7-4300-B15B-BCB1A84AB898}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multitenant.Example.Infrastructure", "Infrastructure\Multitenant.Example.Infrastructure\Multitenant.Example.Infrastructure.csproj", "{9D2CD234-5BA1-45EA-B3D6-351E04E92139}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multitenant.Example.Infrastructure", "Infrastructure\Multitenant.Example.Infrastructure\Multitenant.Example.Infrastructure.csproj", "{9D2CD234-5BA1-45EA-B3D6-351E04E92139}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multitenant.Example.Persistence", "Infrastructure\Multitenant.Example.Persistence\Multitenant.Example.Persistence.csproj", "{43D82994-52BD-4D3B-A8CD-0CBAFB0E80D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multitenant.Example.Persistence", "Infrastructure\Multitenant.Example.Persistence\Multitenant.Example.Persistence.csproj", "{43D82994-52BD-4D3B-A8CD-0CBAFB0E80D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multitenant.Example.API", "Presentation\Multitenant.Example.API\Multitenant.Example.API.csproj", "{BF81EE28-ECD5-4B0A-A2C9-E583A2B73496}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multitenant.Example.API", "Presentation\Multitenant.Example.API\Multitenant.Example.API.csproj", "{BF81EE28-ECD5-4B0A-A2C9-E583A2B73496}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

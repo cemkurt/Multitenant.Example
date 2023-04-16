@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Multitenant.Example.Application.Abstractions;
@@ -10,7 +11,7 @@ namespace Multitenant.Example.Persistence
     {
         public static async Task AddPersistenceService(this IServiceCollection collection)
         {
-            collection.AddScoped<IProductService, ProductService>();
+             collection.AddScoped<IProductService, ProductService>();
 
             using var provider = collection.BuildServiceProvider();
             var configuration = provider.GetRequiredService<IConfiguration>();
@@ -19,7 +20,15 @@ namespace Multitenant.Example.Persistence
             var defaultConnectionString = tenantSettings.Defaults?.ConnectionString;
             var defaultDbProvider = tenantSettings.Defaults?.DbProvider;
             if (defaultDbProvider.ToLower() == "mssql")
+            {
+
                 collection.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(e => e.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
+
+                collection.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+     .AddRoles<IdentityRole>()
+                ;
+            }
 
             using IServiceScope scope = collection.BuildServiceProvider().CreateScope();
 
